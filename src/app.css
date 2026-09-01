@@ -1,0 +1,207 @@
+/* ---------------------------------------------------------------------
+   Static — global styles & Windows 98 design tokens.
+
+   Reconciled against 555.hackclub.com (github.com/Outdatedcandy92/555),
+   the sibling Hack Club Win98-themed YSWS site: a darker desktop grey so
+   panels read as "stickers" sitting on top of it, flat navy (no gradient
+   captions), and a hard semi-transparent offset shadow instead of a
+   double bevel on flat content cards.
+   --------------------------------------------------------------------- */
+
+@font-face {
+	font-family: 'MSW98UI';
+	src: url('/fonts/MSW98UI-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MSW98UI';
+	src: url('/fonts/MSW98UI-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	/* Palette */
+	--win98-desktop: #a9a9a9; /* page/desktop background — light-mid grey, so sticker panels pop without going gloomy */
+	--win98-window: #c0c0c0; /* chrome background — topbar, buttons */
+	--win98-card: #d9d9d9; /* flat content card background — steps, FAQ, guides */
+	--win98-blue: #0000aa; /* flat navy — no gradient, matches 555's caption/link/accent blue */
+	--win98-blue-dark: #000080;
+	--win98-titlebar-text: #ffffff;
+	--win98-text: #000000;
+	--win98-text-muted: #3a3a3a;
+	--win98-link: #0000aa;
+
+	/* Bevel border shades — outset (raised) reads light on top/left, dark on bottom/right */
+	--win98-border-lightest: #ffffff;
+	--win98-border-light: #dfdfdf;
+	--win98-border-dark: #7b7b7b;
+	--win98-border-darkest: #000000;
+
+	/* Fonts — the authentic Win98 "MS Sans Serif"-style UI font, self-hosted */
+	--font-display: 'MSW98UI', 'Perfect DOS VGA 437', 'Courier New', monospace;
+	--font-body: 'MSW98UI', 'Perfect DOS VGA 437', 'Courier New', monospace;
+
+	/* Persistent header (topbar) height, measured at runtime in
+	   +layout.svelte; this is just a sane first-paint fallback. */
+	--chrome-h: 62px;
+
+	/* Hard offset "sticker" shadow — thick black border + a semi-transparent
+	   offset shadow, the graphic language 555.hackclub.com uses for every
+	   non-interactive card, instead of a literal skinned-Windows-98 bevel. */
+	--win98-shadow: 5px 5px 0 rgba(0, 0, 0, 0.85);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: var(--win98-desktop);
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--win98-desktop);
+	color: var(--win98-text);
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.5;
+	scrollbar-color: var(--win98-blue) var(--win98-border-light);
+	scrollbar-width: thick;
+}
+
+body::-webkit-scrollbar {
+	width: 18px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--win98-border-light);
+	border-left: 2px solid var(--win98-border-darkest);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--win98-blue);
+	border: 2px solid var(--win98-border-darkest);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display);
+	margin: 0;
+	font-weight: 700;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: var(--win98-link);
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	/* keep pixel art crisp when scaled */
+	image-rendering: pixelated;
+}
+
+button {
+	font-family: var(--font-body);
+}
+
+/* Shared section scaffolding used by the homepage sections. Every section
+   after the hero gets a thick black top border, so scrolling between them
+   reads like moving between separate bordered "windows" — the same
+   full-bleed, edge-to-edge stacking 555 uses instead of one big beveled
+   frame wrapping the whole page. */
+.section {
+	width: 100%;
+	padding: 3rem 1.5rem;
+	background: var(--win98-desktop);
+	border-top: 4px solid var(--win98-border-darkest);
+	scroll-margin-top: var(--chrome-h);
+}
+
+.section-full {
+	/* Fills the viewport below the sticky topbar exactly, so header +
+	   section together equal 100vh, matching the wireframes. */
+	height: calc(100vh - var(--chrome-h));
+	min-height: 480px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	padding: 1.5rem;
+	background: var(--win98-desktop);
+	border-top: 4px solid var(--win98-border-darkest);
+	scroll-margin-top: var(--chrome-h);
+}
+
+.section-full.scrollable {
+	overflow-y: auto;
+}
+
+.section-heading {
+	font-family: var(--font-display);
+	text-align: center;
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	margin-bottom: 2rem;
+}
+
+/* Utility: outset bevel — reserved for interactive chrome (topbar,
+   buttons) where a pressable affordance actually matters. */
+.bevel-out {
+	border: 3px solid var(--win98-border-darkest);
+	box-shadow:
+		inset 2px 2px 0 var(--win98-border-lightest),
+		inset -2px -2px 0 var(--win98-border-dark);
+}
+
+.bevel-in {
+	border: 3px solid var(--win98-border-darkest);
+	box-shadow:
+		inset 2px 2px 0 var(--win98-border-dark),
+		inset -2px -2px 0 var(--win98-border-lightest);
+}
+
+/* Utility: flat "sticker" panel — thick black border, hard offset shadow,
+   no bevel at all. Used for every non-interactive card (FAQ, how-it-works
+   steps, video frame, guide list) so they read as graphic stickers sitting
+   on the desktop, matching 555's step-card language. */
+.panel-flat {
+	background: var(--win98-card);
+	border: 3px solid var(--win98-border-darkest);
+	box-shadow: var(--win98-shadow);
+}
+
+/* Utility: thin blue accent strip along the top edge of a sticker card —
+   the recurring accent 555 uses on every step card. */
+.accent-strip {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 6px;
+	background: var(--win98-blue);
+}
+
+@media (max-width: 640px) {
+	.section-full {
+		height: auto;
+		min-height: calc(100vh - var(--chrome-h));
+	}
+}
