@@ -8,6 +8,13 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	// The Plausible snippet in src/app.html defines this queueing stub
+	// before its real script loads (see src/routes/+layout.svelte, which
+	// calls it on client-side navigations).
+	interface Window {
+		plausible?: (...args: unknown[]) => void;
+	}
 }
 
 // mdsvex compiles plain `.md` files (see the `extensions` option in

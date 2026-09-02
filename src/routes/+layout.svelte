@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
@@ -18,6 +19,16 @@
 		document.fonts?.ready.then(syncChromeHeight);
 		window.addEventListener('resize', syncChromeHeight);
 		return () => window.removeEventListener('resize', syncChromeHeight);
+	});
+
+	// The Plausible script (src/app.html) only auto-logs a pageview on its
+	// own initial load. SvelteKit routes client-side after that (no reload),
+	// so without this, visiting /guides or /submit from the navbar would
+	// never register as a pageview. Skip the "enter" navigation since the
+	// script's own init already counted that first one.
+	afterNavigate((navigation) => {
+		if (navigation.type === 'enter') return;
+		window.plausible?.('pageview');
 	});
 </script>
 
