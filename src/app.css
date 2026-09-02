@@ -69,13 +69,19 @@ body {
 html {
 	background: var(--win98-desktop);
 	scroll-behavior: smooth;
+	/* Everything below (paddings, gaps, headings) is sized in rem, so
+	   letting the root size grow gently on big screens scales the whole
+	   page instead of just adding empty grey margins around a
+	   phone-sized column. Holds at 16px through tablet widths, eases up
+	   to 18.5px by ~1920px, and stays capped there on ultrawide. */
+	font-size: clamp(16px, 14.75px + 0.2vw, 18.5px);
 }
 
 body {
 	background: var(--win98-desktop);
 	color: var(--win98-text);
 	font-family: var(--font-body);
-	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.5;
 	scrollbar-color: var(--win98-blue) var(--win98-border-light);
 	scrollbar-width: thick;
@@ -197,6 +203,18 @@ button {
 	top: 0;
 	height: 6px;
 	background: var(--win98-blue);
+	transition: height 0.2s ease;
+}
+
+/* Respect reduced-motion: kill the hover lift/scale/zoom transitions site-
+   wide instead of leaving them per-component. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0.001ms !important;
+		animation-duration: 0.001ms !important;
+	}
 }
 
 @media (max-width: 640px) {

@@ -12,7 +12,8 @@
 		<h2 class="section-heading">new to hardware?</h2>
 		<p class="subheading">
 			Join thousands of teenagers who are learning as well at Hack Club.<br />
-			Ask questions in #static
+			Ask questions in
+			<a href="https://hackclub.enterprise.slack.com/archives/C0BSCTE57KL" target="_blank" rel="noopener noreferrer">#static</a>
 		</p>
 
 		<div class="video-frame panel-flat">
@@ -38,7 +39,7 @@
 
 <style>
 	.get-started-inner {
-		max-width: 960px;
+		max-width: 1040px;
 		margin: 0 auto;
 		width: 100%;
 		display: flex;
@@ -51,6 +52,19 @@
 		font-size: 1.05rem;
 		color: var(--win98-text-muted);
 		margin-bottom: 2rem;
+	}
+
+	.subheading a {
+		display: inline-block;
+		color: var(--win98-blue);
+		font-weight: 700;
+		transform: translateY(0);
+		transition: transform 0.15s ease;
+	}
+
+	.subheading a:hover,
+	.subheading a:focus-visible {
+		transform: translateY(-2px);
 	}
 
 	.video-frame {

@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Submit — Static</title>
+	<title>Submit - Static</title>
 </svelte:head>
 
 <section class="section">

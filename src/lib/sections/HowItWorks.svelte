@@ -22,33 +22,50 @@
 
 <style>
 	.steps {
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		display: flex;
-		gap: 1.5rem;
+		gap: 1.75rem;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 
 	.step-card {
 		position: relative;
-		flex: 1 1 220px;
-		max-width: 280px;
+		flex: 1 1 250px;
+		max-width: 320px;
 		padding-top: 6px;
 		overflow: hidden;
+		transition:
+			transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+			box-shadow 0.2s ease;
+	}
+
+	.step-card:hover {
+		transform: translate(-4px, -4px) scale(1.04);
+		box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.85);
+	}
+
+	.step-card:hover .accent-strip {
+		height: 9px;
 	}
 
 	.step-card img {
 		width: 100%;
-		height: 220px;
+		height: 250px;
 		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.step-card:hover img {
+		transform: scale(1.08);
 	}
 
 	.step-title {
-		padding: 0.75rem 0.9rem;
+		padding: 0.85rem 1rem;
 		font-family: var(--font-display);
 		font-weight: 700;
-		font-size: 1.05rem;
+		font-size: 1.15rem;
 	}
 
 	@media (max-width: 640px) {

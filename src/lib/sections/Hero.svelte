@@ -9,11 +9,20 @@
 				Design a FM Radio<br />
 				Get it for <span class="free">free</span>!
 			</h1>
-			<p class="subheading">for teenagers, 19 or under</p>
+			<p class="subheading">for teenagers, 18 or under</p>
 			<Win98Button href="#how-it-works">learn how to make a radio</Win98Button>
 		</div>
 		<div class="hero-image">
-			<img src="/images/radio-cutout.png" alt="A finished FM radio build, angled with its antenna extended" />
+			<!-- PCB sits underneath; the case sits on top at the same registration
+			     and fades out on hover to reveal the board inside. -->
+			<div class="hero-stack">
+				<img class="hero-layer" src="/images/hero-pcb.png" alt="" aria-hidden="true" />
+				<img
+					class="hero-layer hero-case"
+					src="/images/hero-case.png"
+					alt="A finished FM radio build, angled with its antenna extended"
+				/>
+			</div>
 		</div>
 	</div>
 </section>
@@ -24,7 +33,7 @@
 	}
 
 	.hero-inner {
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		width: 100%;
 		display: flex;
@@ -61,16 +70,43 @@
 	}
 
 	.hero-image {
-		flex: 1 1 320px;
+		flex: 1 1 460px;
 		display: flex;
 		justify-content: center;
-		max-width: 480px;
+		max-width: 760px;
 	}
 
-	.hero-image img {
+	/* PCB + case share one grid cell so they line up pixel-for-pixel —
+	   both renders come from the same registered crop, so stacking them
+	   this way (instead of absolute positioning) keeps them aligned at
+	   any width without hardcoding pixel offsets. */
+	.hero-stack {
+		display: grid;
+		width: 100%;
+		filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.85));
+		transition:
+			transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+			filter 0.3s ease;
+	}
+
+	.hero-stack:hover {
+		transform: scale(1.06) rotate(-1.5deg);
+		filter: drop-shadow(10px 10px 0 rgba(0, 0, 0, 0.85));
+	}
+
+	.hero-layer {
+		grid-area: 1 / 1;
 		width: 100%;
 		height: auto;
-		filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.85));
+	}
+
+	.hero-case {
+		transition: opacity 0.3s ease;
+	}
+
+	/* Case fades down to a ghost on hover, revealing the board underneath. */
+	.hero-stack:hover .hero-case {
+		opacity: 0.2;
 	}
 
 	@media (max-width: 640px) {

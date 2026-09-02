@@ -5,12 +5,11 @@
 	top of a separate toolbar.
 -->
 <script>
-	// "Get Started" covers Guides too — that section links out to /guides
-	// itself, so the guide doesn't need its own top-level nav slot.
 	const navItems = [
 		{ label: 'Home', href: '/#landing' },
 		{ label: 'How it Works', href: '/#how-it-works' },
 		{ label: 'Get Started', href: '/#get-started' },
+		{ label: 'Guides', href: '/guides' },
 		{ label: 'FAQ', href: '/#faq' }
 	];
 
@@ -60,6 +59,11 @@
 	.brand-icon {
 		image-rendering: pixelated;
 		flex-shrink: 0;
+		transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.brand:hover .brand-icon {
+		transform: scale(1.15) rotate(-6deg);
 	}
 
 	.wordmark {
@@ -85,12 +89,16 @@
 		font-weight: 700;
 		color: var(--win98-blue);
 		text-decoration: none;
+		display: inline-block;
+		transform: translateY(0);
+		transition: transform 0.15s ease;
 	}
 
 	.nav-link:hover,
 	.nav-link:focus-visible {
 		text-decoration: underline;
 		text-decoration-thickness: 2px;
+		transform: translateY(-2px);
 	}
 
 	/* Filled CTA, pinned to the far right by nav's margin-left: auto —
@@ -103,12 +111,16 @@
 			inset 1px 1px 0 var(--win98-border-light),
 			inset -1px -1px 0 var(--win98-border-darkest);
 		margin-left: 0.4rem;
+		transition:
+			transform 0.15s ease,
+			filter 0.15s ease;
 	}
 
 	.submit-link:hover,
 	.submit-link:focus-visible {
 		text-decoration: none;
 		filter: brightness(1.15);
+		transform: translateY(-2px) scale(1.05);
 	}
 
 	@media (max-width: 640px) {

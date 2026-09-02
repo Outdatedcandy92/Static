@@ -2,27 +2,27 @@
 	const faqs = [
 		{
 			title: 'Eligibility',
-			body: 'Placeholder answer — swap in the real eligibility rules here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			body: 'You have to be 13 to 18 years old to be eligible to participate in Hack Club YSWS programs.'
 		},
 		{
 			title: 'What do I get?',
-			body: 'Placeholder answer — swap in the real prize details here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			body: 'You get a kit with the parts to build an FM radio shipped to you, or you can receive funding to build one yourself.'
 		},
 		{
 			title: 'Do I need experience?',
-			body: 'Placeholder answer — swap in the real experience requirements here. Lorem ipsum dolor sit amet, consectetur.'
+			body: "No, you don't need experience to start. You can follow the guides and build your own radio from there."
 		},
 		{
 			title: 'What software should I use?',
-			body: 'Placeholder answer — swap in the recommended PCB/CAD/firmware tools here. Lorem ipsum dolor sit amet, consectetur.'
+			body: 'KiCad or EasyEDA for PCB design, and Fusion 360 or Onshape for CAD.'
 		},
 		{
 			title: "What counts as 'shipped'?",
-			body: 'Placeholder answer — swap in the real shipping/submission criteria here. Lorem ipsum dolor sit amet, consectetur.'
+			body: 'A shipped project is publicly available online, like a GitHub repo or equivalent, so people can see it, use it, and build their own version from it.'
 		},
 		{
 			title: 'What is Hack Club?',
-			body: "Hack Club is a nonprofit network of free, teen-led coding clubs and hardware programs. We build real tools and ship free parts so teenagers can learn by making things — no experience required."
+			body: 'Hack Club is a 501(c)(3) nonprofit and a network of technical high schoolers. We run programs like this one so teenagers can learn real skills by building real projects, for free.'
 		}
 	];
 </script>
@@ -46,7 +46,7 @@
 
 <style>
 	.faq-inner {
-		max-width: 1100px;
+		max-width: 1200px;
 		margin: 0 auto;
 		width: 100%;
 	}
@@ -61,6 +61,18 @@
 		position: relative;
 		height: 220px;
 		overflow: hidden;
+		transition:
+			transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+			box-shadow 0.2s ease;
+	}
+
+	.faq-card:hover {
+		transform: translate(-4px, -4px) scale(1.03);
+		box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.85);
+	}
+
+	.faq-card:hover .accent-strip {
+		height: 9px;
 	}
 
 	.faq-card-body {

@@ -9,7 +9,11 @@
 
 <div class="coming-soon panel-flat">
 	<p>{message}</p>
-	<p class="sub">Check back later, or ask in #static on the Hack Club Slack.</p>
+	<p class="sub">
+		Check back later, or ask in
+		<a href="https://hackclub.enterprise.slack.com/archives/C0BSCTE57KL" target="_blank" rel="noopener noreferrer">#static</a>
+		on the Hack Club Slack.
+	</p>
 </div>
 
 <style>
@@ -31,5 +35,18 @@
 		font-weight: 400;
 		font-size: 0.95rem;
 		color: var(--win98-text-muted);
+	}
+
+	.coming-soon .sub a {
+		display: inline-block;
+		color: var(--win98-blue);
+		font-weight: 700;
+		transform: translateY(0);
+		transition: transform 0.15s ease;
+	}
+
+	.coming-soon .sub a:hover,
+	.coming-soon .sub a:focus-visible {
+		transform: translateY(-2px);
 	}
 </style>

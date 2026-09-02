@@ -22,7 +22,14 @@ const config = {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		})
+		}),
+		prerender: {
+			// /guides links to #<slug> hashes for its client-side guide
+			// switcher (see src/routes/guides/+page.svelte) — those aren't
+			// real in-page anchor ids, so skip SvelteKit's crawl-time check
+			// for them instead of failing the build.
+			handleMissingId: 'ignore'
+		}
 	}
 };
 

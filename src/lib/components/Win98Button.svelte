@@ -41,6 +41,17 @@
 		border: 3px solid var(--win98-border-darkest);
 		box-shadow: var(--win98-shadow);
 		transform: translate(0, 0);
+		transition:
+			transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+			box-shadow 0.15s ease;
+	}
+
+	/* Lifts slightly on hover (deeper shadow), then the :active rule
+	   below takes over on click and pushes it flat — the sticker
+	   "peels up, then gets pressed down" language used sitewide. */
+	.win98-button:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.85);
 	}
 
 	.win98-button:active {
