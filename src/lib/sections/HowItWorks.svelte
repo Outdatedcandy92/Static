@@ -3,7 +3,12 @@
 		{ title: '1. design a pcb', image: '/images/step1-pcb.png', alt: 'A PCB layout tool showing the radio circuit board design' },
 		{ title: '2. design a case', image: '/images/step2-case.png', alt: 'A CAD program showing a 3D-modeled radio case' },
 		{ title: '3. write firmware', image: '/images/step3-firmware.png', alt: 'A code editor with firmware source for the radio' },
-		{ title: '4. submit :D', image: '/images/step4-submit.png', alt: 'Submitting the finished PCB design' }
+		{
+			title: '4. submit :D',
+			image: '/images/step4-submit.png',
+			alt: 'Submitting the finished PCB design',
+			href: 'https://forms.hackclub.com/static'
+		}
 	];
 </script>
 
@@ -11,11 +16,17 @@
 	<h2 class="section-heading">how it works</h2>
 	<div class="steps">
 		{#each steps as step}
-			<div class="step-card panel-flat">
+			<svelte:element
+				this={step.href ? 'a' : 'div'}
+				href={step.href}
+				target={step.href ? '_blank' : undefined}
+				rel={step.href ? 'noopener noreferrer' : undefined}
+				class="step-card panel-flat"
+			>
 				<div class="accent-strip"></div>
 				<img src={step.image} alt={step.alt} />
 				<p class="step-title">{step.title}</p>
-			</div>
+			</svelte:element>
 		{/each}
 	</div>
 </section>
@@ -36,6 +47,12 @@
 		max-width: 320px;
 		padding-top: 6px;
 		overflow: hidden;
+		/* Step 4 renders as an <a> (links out to the submission form); the
+		   other three stay plain divs. Reset link styling either way so it
+		   still reads as a card, not a hyperlink. */
+		display: block;
+		color: inherit;
+		text-decoration: none;
 		transition:
 			transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
 			box-shadow 0.2s ease;

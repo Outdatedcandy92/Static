@@ -15,13 +15,18 @@ If you're new to hardware, I would highly recommend following the guide to make 
 
 If you're using the kit, you can use the following parts:
 
-- Xiao RP2040
-- RDA5807
-- TDA2822NBD
-- 1W Speakers
-- Potentiometers
-- Passives
-- detailed list launching soon
+- 1 x Seeed Studio Xiao RP2040
+- 2 x RDA5807 Module
+- 2 x 10K WH148 Dual Gang Potentiometer
+- 2 x 12mm Momentary Push Button
+- 2 x Audio Jack
+- 2 x TDA2822 Amplifiers
+- 1 x 3.5mm Antenna
+- 10 x 5mm LEDs
+- 10 x M2.5 Screws
+- 10 x M2.5 Heat Inserts, OD 3.5mm
+- 10 x 100uF Capacitors
+- 10 x 10K Resistors
 
 Footprints and symbols for these can be found on [github.com/Outdatedcandy92/Static-KiCAD-Library](https://github.com/Outdatedcandy92/Static-KiCAD-Library)
 

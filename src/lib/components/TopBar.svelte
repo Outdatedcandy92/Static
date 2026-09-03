@@ -28,7 +28,14 @@
 		{#each navItems as item}
 			<a class="nav-link" href={item.href}>{item.label}</a>
 		{/each}
-		<a class="nav-link submit-link" href="/submit">Submit</a>
+		<a
+			class="nav-link submit-link"
+			href="https://forms.hackclub.com/static"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Submit
+		</a>
 	</nav>
 </header>
 

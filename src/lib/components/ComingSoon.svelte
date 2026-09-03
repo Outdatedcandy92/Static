@@ -1,6 +1,6 @@
 <!--
-	Shared "coming soon" placeholder panel used by /guides and /submit
-	until either page has real content.
+	"Coming soon" placeholder panel — used as /guides' empty-state fallback
+	if src/lib/guides/ ever ends up with no markdown files in it.
 -->
 <script>
 	/** Main message, e.g. "Guides are coming soon!" */

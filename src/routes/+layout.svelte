@@ -23,8 +23,8 @@
 
 	// The Plausible script (src/app.html) only auto-logs a pageview on its
 	// own initial load. SvelteKit routes client-side after that (no reload),
-	// so without this, visiting /guides or /submit from the navbar would
-	// never register as a pageview. Skip the "enter" navigation since the
+	// so without this, visiting /guides from the navbar would never
+	// register as a pageview. Skip the "enter" navigation since the
 	// script's own init already counted that first one.
 	afterNavigate((navigation) => {
 		if (navigation.type === 'enter') return;
@@ -46,9 +46,9 @@
 
 <style>
 	/* Plain flex column (no visual frame) so the footer always sits at the
-	   bottom of the viewport on short pages (Guides, Submit) instead of
-	   floating right under the content. Tall pages (the homepage, whose
-	   sections already sum to several viewport heights) are unaffected —
+	   bottom of the viewport on short pages (Guides) instead of floating
+	   right under the content. Tall pages (the homepage, whose sections
+	   already sum to several viewport heights) are unaffected —
 	   .app-content just grows past 100vh like normal flow. */
 	.app-shell {
 		min-height: 100vh;

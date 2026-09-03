@@ -230,6 +230,28 @@
 		margin: 0.9rem 0;
 	}
 
+	/* GFM task lists (`- [ ]`) render as real disabled checkboxes, but
+	   browser-default ones are tiny and easy to miss next to the bullet.
+	   Drop the bullet, size the box up, and align it with the text. */
+	.markdown-body :global(ul.contains-task-list) {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.markdown-body :global(.task-list-item) {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.6rem;
+	}
+
+	.markdown-body :global(.task-list-item input[type='checkbox']) {
+		flex-shrink: 0;
+		width: 1.1rem;
+		height: 1.1rem;
+		margin-top: 0.3rem;
+		accent-color: var(--win98-blue);
+	}
+
 	.markdown-body :global(a) {
 		color: var(--win98-blue);
 		text-decoration: underline;
