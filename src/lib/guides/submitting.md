@@ -1,7 +1,7 @@
 ---
 title: Submitting
 subtitle: Ship your build and send it in
-order: 5
+order: 6
 ---
 
 Before submitting, make sure your GitHub repository includes the following:

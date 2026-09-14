@@ -1,7 +1,7 @@
 ---
 title: Journalling
 subtitle: Document your build as you go
-order: 4
+order: 5
 ---
 
 ## How do I journal? What the heck even is journalling?
