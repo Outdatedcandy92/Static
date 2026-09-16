@@ -20,6 +20,7 @@ If you're using the kit, you can use the following parts:
 - 2 x 10K WH148 Dual Gang Potentiometer
 - 2 x 12mm Momentary Push Button
 - 2 x Audio Jack
+- 2 x 30mm Speakers
 - 2 x TDA2822 Amplifiers
 - 1 x 3.5mm Antenna
 - 10 x 5mm LEDs

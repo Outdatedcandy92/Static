@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "submitting.md",
+                "file": "getting-started.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "submitting"
+              "title": "getting-started"
             }
           }
         ]
@@ -191,6 +191,8 @@
   "active": "e261e05693ec7ff6",
   "lastOpenFiles": [
     "journalling.md",
+    "firmware.md",
+    "submitting.md",
     "getting-started.md"
   ]
 }
