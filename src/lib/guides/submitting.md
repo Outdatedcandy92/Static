@@ -8,7 +8,7 @@ Before submitting, make sure your GitHub repository includes the following:
 
 - [ ] A `Journal.md` file in the root folder (if you are not using Lapse)
 - [ ] A detailed `README.md`
-- [ ] BOM (Bill of Materials) in CSV format, with links, and a line indicating the total cost!
+- [ ] BOM (Bill of Materials) in CSV format, with links, and a line indicating the total cost! in the root of your repository
 - [ ] The source files of your PCB, if you have one (.kicad_pro, .kicad_sch, .kicad_pcb, .epro, gerbers.zip, etc)
 - [ ] If you have 3D models, .step files of your project's 3D CAD and the source design file (.f3d, .FCStd, or a link to Onshape)
 - [ ] Your firmware files
