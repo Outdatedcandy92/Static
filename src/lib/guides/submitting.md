@@ -42,6 +42,7 @@ Your `README.md` should include the following:
 - PCB Render Image
 - Schematic Image
 - PCB Image
+- Case Render (if you have one)
 
 
 ---
